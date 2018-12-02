@@ -27,12 +27,13 @@ class Caption:
         self.id = text
         self.text = text
 
-    def display(self, position, board):
+    def display(self, position, board, update=True):
         surf = FONT.render(str(self.text), True, WHITE, BLACK)
         rect = surf.get_rect()
         rect.center = position
         board.blit(surf,rect)
-        pygame.display.update()
+        if update:
+            pygame.display.update()
 
 class Menu:
 
@@ -61,12 +62,15 @@ class Menu:
         pygame.display.update()
 
     def handle_event(self, event):
+
         if event.type == KEYDOWN:
             if event.key == K_UP:
                 self.cursor  += -1
             elif event.key == K_DOWN:
                 self.cursor += 1
             elif event.key == K_RETURN:
+                return self.options[self.cursor % len(self.options)].action
+            elif self.id=='keys':
                 return self.options[self.cursor % len(self.options)].action
 
 class Interface:

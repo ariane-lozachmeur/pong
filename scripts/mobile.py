@@ -17,22 +17,22 @@ class Mobile:
         self.down = down
 
     def set_position(self, x, y):
-        self.x = x
-        self.y = y
+        self.x = int(x)
+        self.y = int(y)
 
     def set_speed(self, vx=None, vy=None):
         if vx is None:
-            vx = self.vx
+            vx = int(self.vx)
         if vy is None:
-            vy = self.vy
+            vy = int(self.vy)
 
         if vx ** 2 + vy ** 2 == self.speed ** 2:
-            self.vx = vx
-            self.vy = vy
+            self.vx = int(vx)
+            self.vy = int(vy)
         else:
             if not (vx==0 and vy==0):
-                self.vx = float(self.speed * vx) / sqrt(vx ** 2 + vy ** 2)
-                self.vy = float(self.speed * vy) / sqrt(vx ** 2 + vy ** 2)
+                self.vx = int(float(self.speed * vx) / sqrt(vx ** 2 + vy ** 2))
+                self.vy = int(float(self.speed * vy) / sqrt(vx ** 2 + vy ** 2))
             else:
                 self.vx = 0
                 self.vy = 0
@@ -66,16 +66,17 @@ class Mobile:
             self.vy = int(go_to - self.y)/100
 
 
-
     def control_ball(self, game):
         # If the ball is at the level of player 2
-        if  WIDTH - 50 > self.x > WIDTH - 55:
+        if  WIDTH - 60 < self.x < WIDTH - 40:
+            print(self.x, self.y, game.player2.paddle.y)
             if game.player2.paddle.y < self.y < game.player2.paddle.y + PADDLE_HEIGHT:
                 self.set_speed(vx = -self.vx + 0.5 * game.player2.paddle.vy)
         # If the ball is at the level of player 1
         elif self.x < 50 + BALL_RADIUS:
             if game.player1.paddle.y < self.y < game.player1.paddle.y + PADDLE_HEIGHT:
                 self.set_speed(vx = -self.vx + 0.5 * game.player1.paddle.vy)
+
         # If the ball hits the uper or lower side
         if self.y < BALL_RADIUS or self.y > HEIGHT - BALL_RADIUS:
             self.set_speed(vy =  -self.vy)

@@ -9,13 +9,19 @@ from scripts.locals import *
 if __name__ == '__main__':
 
     game_board = Game(HEIGHT, WIDTH)
-    pygame.mixer.init()
-    pygame.mixer.music.load('sound/got.mp3')
-    pygame.mixer.music.play()
+    # pygame.mixer.init()
+    # pygame.mixer.music.load('sound/got.mp3')
+    # pygame.mixer.music.play()
     NPLAYER = game_board.menu('player')['n']
+    P1_UP, P1_DOWN = game_board.menu('keys')['p1_keys']
+    KEYS = [P1_UP, P1_DOWN]
+    if NPLAYER == 2:
+        P2_UP, P2_DOWN = game_board.menu('keys')['p2_keys']
+        KEYS += [P2_UP, P2_DOWN]
+
     game_board.level = game_board.menu('level')['level']
     speed = SPEED[game_board.level]
-    game_board.set_players(NPLAYER)
+    game_board.set_players(NPLAYER, keys=KEYS)
     game_board.show('rules')
     game_board.update()
     game_board.menu('start')
