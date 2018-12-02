@@ -7,9 +7,9 @@ HEIGHT = 600
 WIDTH = 1200
 
 # Global speed variable. 
-# To change speed of the game change FRAME_RATE not SPEED.
-SPEED = {'easy':2, 'medium':3, 'difficult':4}
-FRAME_RATE = {'easy':50, 'medium':50, 'difficult':50}
+# To change speed of the game change FRAME RATE.
+SPEED = {'easy':8, 'medium':8, 'difficult':8}
+FRAME_RATE = {'easy':200, 'medium':150, 'difficult':100}
 
 # Colors
 BLACK = (0,0,0)
@@ -53,7 +53,13 @@ MENUS = {
         'opt': ({'id':'easy','action':'easy'},
                 {'id':'medium','action':'medium'},
                 {'id':'difficult','action':'difficult'})
-        }
+        },
+    'keys': {
+        'title':'Choose the keys to use for:',
+        'opt': ({'id':'Up key', 'action':'upkey'},
+                {'id':'Down key', 'action': 'downkey'},
+                {'id': 'Start game !', 'action': 'START'})
+        },
     }
 
 # CAPTIONS = {

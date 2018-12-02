@@ -6,6 +6,9 @@ from scripts.interface import Caption, Menu
 from scripts.locals import *
 from numpy import argmax
 import sys
+import time
+
+import numpy as np
 
 class Game:
 
@@ -19,30 +22,29 @@ class Game:
         self.ball = Ball()
         self.set_players(self.n)
 
-    def set_players(self, n):
+    def set_players(self, n, keys):
         self.n = n
-        self.player1 = Player(name = 'Player1', type='player1')
+        self.player1 = Player(name = 'Player1', type='player1', k_up=keys[0], k_down=keys[1])
         if n == 1:
             self.player2 = Player(name= 'Player2', type='ia2')
         elif n == 2:
-            self.player2 = Player(name= 'Player2', type='player2')
+            self.player2 = Player(name= 'Player2', type='player2', k_up=keys[2], k_down=keys[3])
 
     def update(self):
         self.board.fill(BLACK)
-
-        for i in range(HEIGHT / 20):
+        for i in range(int(HEIGHT / 20)):
             pygame.draw.rect(self.board, WHITE, (WIDTH / 2, i * 20, 5, 10))
 
         score1 = Caption(self.player1.score)
         score2 = Caption(self.player2.score)
-        score1.display(((WIDTH/2 - 50),(HEIGHT-50)),self.board)
-        score2.display(((WIDTH/2 + 50),(HEIGHT-50)),self.board)
+        score1.display(((WIDTH/2 - 50),(HEIGHT-50)),self.board, update=False)
+        score2.display(((WIDTH/2 + 50),(HEIGHT-50)),self.board, update=False)
 
         self.player1.update(self.board)
         self.player2.update(self.board)
         self.ball.update(self.board)
 
-        pygame.display.update()
+        pygame.display.flip()
 
     def incr_score(self, player, goal):
         if player == '1':
@@ -74,7 +76,8 @@ class Game:
             
             self.player1.move(speed)
             self.player2.move(speed)
-            self.ball.move(speed)
+            self.ball.move(speed*0.4)
+
 
     def menu(self, type):
         start = False
@@ -95,7 +98,6 @@ class Game:
                     sys.exit()
                 elif action == 'START':
                     start = True
-
                 elif action == '1player':
                     start = True
                     ans['n'] = 1
@@ -105,6 +107,21 @@ class Game:
                 elif action in ['easy','medium','difficult']:
                     start = True
                     ans['level'] = action
+
+                elif action == 'upkey':
+                    MENUS[type]['opt'][0]['id'] = 'Up key:' + str(event.unicode)
+                    if 'p1_keys' not in ans.keys():
+                        ans['p1_keys'] = [event.key, np.nan]
+                    else:
+                        ans['p1_keys'][0] = event.key
+
+                elif action == 'downkey':
+                    MENUS[type]['opt'][1]['id'] = 'Down key:' + str(event.unicode)
+                    if 'p1_keys' not in ans.keys():
+                        ans['p1_keys'] = [np.nan, event.key]
+                    else:
+                        ans['p1_keys'][1] = event.key
+
         self.board.fill(BLACK)
         return ans
 
@@ -124,8 +141,8 @@ class Game:
                 'Controls :',
                 'Player 1, to go up press: '+ str(pygame.key.name(self.player1.paddle.up)),
                 'Player 1 to go down press: '+ str(pygame.key.name(self.player1.paddle.down)),
-                'Player 2 to go up press: '+ str(pygame.key.name(self.player2.paddle.up)),
-                'Player 2 to go down press: '+ str(pygame.key.name(self.player2.paddle.down))
+                # 'Player 2 to go up press: '+ str(pygame.key.name(self.player2.paddle.up)),
+                # 'Player 2 to go down press: '+ str(pygame.key.name(self.player2.paddle.down))
             ]
         captions = ['Press enter to continue...'] + captions
         n_caption = len(captions)
@@ -147,7 +164,7 @@ class Game:
 
 class Player:
 
-    def __init__(self, name, type):
+    def __init__(self, name, type, k_up=None, k_down=None):
         self.paddle = mb.Mobile('rect', dim = (PADDLE_THICK, PADDLE_HEIGHT), speed = SPEED['medium'])
         self.name = name
         self.score = 0
@@ -155,10 +172,11 @@ class Player:
 
         if '1' in type:
             self.paddle.set_position(50, HEIGHT/2)
-            self.paddle.set_controls(K_z,K_s)
+            self.paddle.set_controls(k_up,k_down)
         elif '2' in type:
             self.paddle.set_position(WIDTH-50,HEIGHT/2)
-            self.paddle.set_controls(K_p, K_m)
+            self.paddle.set_controls(k_up,k_down)
+            # self.paddle.set_controls(K_p, K_m)
         else:
             raise ValueError('type of player'+name+' incorrect. It doesn\'t contain 1 or 2')
 
