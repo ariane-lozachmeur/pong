@@ -10,5 +10,11 @@ pip3 install requirements.txt
 ```
 
 ## Launch a game
-``` python3 main.py
+``` 
+python3 main.py
 ```
+
+## Preview
+![Overview][screen]
+
+[screen]: https://github.com/ariane-lozachmeur/pong/blob/master/screenshot/overview.png "Overview"
