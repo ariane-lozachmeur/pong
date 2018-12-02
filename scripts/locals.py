@@ -7,9 +7,9 @@ HEIGHT = 600
 WIDTH = 1200
 
 # Global speed variable. 
-# To change speed of the game change SPEED.
-SPEED = {'easy':7, 'medium':9, 'difficult':11}
-FRAME_RATE = {'easy':60, 'medium':60, 'difficult':60}
+# To change speed of the game change FRAME RATE.
+SPEED = {'easy':8, 'medium':8, 'difficult':8}
+FRAME_RATE = {'easy':200, 'medium':150, 'difficult':100}
 
 # Colors
 BLACK = (0,0,0)

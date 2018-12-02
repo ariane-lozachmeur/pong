@@ -61,7 +61,7 @@ class Game:
             self.ball = Ball()
 
         while self.ball.scored is None:
-            clock.tick()#FRAME_RATE[self.level])
+            clock.tick(FRAME_RATE[self.level])
             self.update()
             for event in pygame.event.get():
                 if event.type == QUIT:

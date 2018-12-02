@@ -2,13 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="a8562363-8712-4974-b0e0-653896690e88" name="Default" comment="">
-      <change afterPath="$PROJECT_DIR$/requirements.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/pong.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/pong.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/main.py" beforeDir="false" afterPath="$PROJECT_DIR$/main.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/scripts/game.py" beforeDir="false" afterPath="$PROJECT_DIR$/scripts/game.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/scripts/interface.py" beforeDir="false" afterPath="$PROJECT_DIR$/scripts/interface.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/scripts/locals.py" beforeDir="false" afterPath="$PROJECT_DIR$/scripts/locals.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/scripts/mobile.py" beforeDir="false" afterPath="$PROJECT_DIR$/scripts/mobile.py" afterDir="false" />
     </list>
@@ -36,8 +30,8 @@
       <file leaf-file-name="game.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/scripts/game.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="21">
-              <caret line="78" column="36" selection-start-line="78" selection-start-column="36" selection-end-line="78" selection-end-column="36" />
+            <state relative-caret-position="636">
+              <caret line="63" column="23" selection-start-line="63" selection-start-column="23" selection-end-line="63" selection-end-column="23" />
               <folding>
                 <element signature="e#0#13#0" expanded="true" />
               </folding>
@@ -45,11 +39,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="locals.py" pinned="false" current-in-tab="true">
+      <file leaf-file-name="locals.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/scripts/locals.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="150">
-              <caret line="10" column="45" selection-start-line="10" selection-start-column="45" selection-end-line="10" selection-end-column="45" />
+            <state relative-caret-position="112">
+              <caret line="9" column="47" selection-start-line="9" selection-start-column="47" selection-end-line="9" selection-end-column="47" />
             </state>
           </provider>
         </entry>
@@ -66,11 +60,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="mobile.py" pinned="false" current-in-tab="false">
+      <file leaf-file-name="mobile.py" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/scripts/mobile.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="489">
-              <caret line="86" lean-forward="true" selection-start-line="86" selection-end-line="86" />
+            <state relative-caret-position="484">
+              <caret line="84" lean-forward="true" selection-start-line="84" selection-end-line="84" />
               <folding>
                 <element signature="e#0#21#0" expanded="true" />
               </folding>
@@ -100,8 +94,8 @@
         <option value="$PROJECT_DIR$/scripts/interface.py" />
         <option value="$PROJECT_DIR$/main.py" />
         <option value="$PROJECT_DIR$/scripts/game.py" />
-        <option value="$PROJECT_DIR$/scripts/mobile.py" />
         <option value="$PROJECT_DIR$/scripts/locals.py" />
+        <option value="$PROJECT_DIR$/scripts/mobile.py" />
       </list>
     </option>
   </component>
@@ -205,7 +199,7 @@
       <window_info anchor="bottom" id="Version Control" order="7" />
       <window_info anchor="bottom" id="Python Console" order="7" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
-      <window_info anchor="bottom" id="Terminal" order="7" />
+      <window_info anchor="bottom" id="Terminal" order="7" weight="0.24882075" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.39976415" />
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
@@ -385,10 +379,17 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/scripts/locals.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="112">
+          <caret line="9" column="47" selection-start-line="9" selection-start-column="47" selection-end-line="9" selection-end-column="47" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/scripts/game.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="21">
-          <caret line="78" column="36" selection-start-line="78" selection-start-column="36" selection-end-line="78" selection-end-column="36" />
+        <state relative-caret-position="636">
+          <caret line="63" column="23" selection-start-line="63" selection-start-column="23" selection-end-line="63" selection-end-column="23" />
           <folding>
             <element signature="e#0#13#0" expanded="true" />
           </folding>
@@ -397,18 +398,11 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/scripts/mobile.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="489">
-          <caret line="86" lean-forward="true" selection-start-line="86" selection-end-line="86" />
+        <state relative-caret-position="484">
+          <caret line="84" lean-forward="true" selection-start-line="84" selection-end-line="84" />
           <folding>
             <element signature="e#0#21#0" expanded="true" />
           </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/scripts/locals.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="150">
-          <caret line="10" column="45" selection-start-line="10" selection-start-column="45" selection-end-line="10" selection-end-column="45" />
         </state>
       </provider>
     </entry>

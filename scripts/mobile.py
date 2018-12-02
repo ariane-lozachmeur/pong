@@ -58,7 +58,6 @@ class Mobile:
             go_to = WIDTH/4 - PADDLE_HEIGHT/2
         else:
             go_to = y_impact- PADDLE_HEIGHT/2 + self.rand
-            # go_to = y_impact - PADDLE_HEIGHT/2
 
         try:
             self.vy = int(go_to - self.y)/t_impact
@@ -69,11 +68,10 @@ class Mobile:
     def control_ball(self, game):
         # If the ball is at the level of player 2
         if  WIDTH - 60 < self.x < WIDTH - 40:
-            print(self.x, self.y, game.player2.paddle.y)
             if game.player2.paddle.y < self.y < game.player2.paddle.y + PADDLE_HEIGHT:
                 self.set_speed(vx = -self.vx + 0.5 * game.player2.paddle.vy)
         # If the ball is at the level of player 1
-        elif self.x < 50 + BALL_RADIUS:
+        elif 50 - BALL_RADIUS < self.x < 50 + BALL_RADIUS:
             if game.player1.paddle.y < self.y < game.player1.paddle.y + PADDLE_HEIGHT:
                 self.set_speed(vx = -self.vx + 0.5 * game.player1.paddle.vy)
 
